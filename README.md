@@ -34,7 +34,36 @@ python face_detect_trim.py
 保存先は images/trim/
 
 ### 顔認識の手順(recognition)
+recognitionのディレクトリに移動する
+```
+cd recognition
+```
 
+※ get_myface/get_othersの実行前にimages/datasetフォルダ配下にmyfaceとothersフォルダを生成しておく。
+自分の顔を収集する
+```
+python get_myface.py
+```
+images/dataset/myface配下に保存される
+
+他人の顔を収集する
+```
+python get_others.py
+```
+images/dataset/others配下に保存される
 
 ### 一応、モジュールの吐き出し
 pip freeze > requirements.tx
+
+
+ブログ用に記事を分割
+
+3ボンバシラ
+datasetの準備
+
+kerasの導入
+mymodel.h5の準備
+
+test用データの準備
+predictionの実行
+結果の確認

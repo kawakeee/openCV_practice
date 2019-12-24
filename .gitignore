@@ -1,3 +1,6 @@
 .vscode
+images/dataset/*
 opencvEnv/
 __pycache__
+whoiswho.txt
+mymodel.h5
