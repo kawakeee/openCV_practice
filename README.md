@@ -1,26 +1,40 @@
-# openCV_practice
+### openCV_practice
 openCVをいじるリポジトリ
 
-# 仮想環境の作成
+### 仮想環境の作成
 python3 -m venv opencvEnv
 
-# 仮想環境の立ち上げ
+### 仮想環境の立ち上げ
 source opencvEnv/bin/activate
 
-# モジュールのインストール
+### モジュールのインストール
 pip install -r requirements.txt
 
+### 顔検出の手順(detection)
+detectionのディレクトリに移動する
+```
+cd detection
+```
 
-- face_detection.py
+```
+python face_detect.py
+```
 顔検出するだけ
 
-- face_detection_cap.py
+```
+python face_detect_cap.py
+```
 顔検出時のフレームをjpgで保存する
 保存先は images/capture/
 
-- face_detection_trim.py
+```
+python face_detect_trim.py
+```
 顔検出時の顔検出部分をjpgで保存する
 保存先は images/trim/
 
-# モジュールの吐き出し
+### 顔認識の手順(recognition)
+
+
+### 一応、モジュールの吐き出し
 pip freeze > requirements.tx
