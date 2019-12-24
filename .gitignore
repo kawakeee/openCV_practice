@@ -1,0 +1,5 @@
+.vscode
+images/*
+pictures/*
+__pycache__
+face_detection_1.py
