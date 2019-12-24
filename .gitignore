@@ -1,5 +1,5 @@
 .vscode
-images/*
-pictures/*
+images/capture/*
+images/trim/*
 __pycache__
 face_detection_1.py

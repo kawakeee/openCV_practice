@@ -19,3 +19,6 @@ pip install -r requirements.txt
 
 - face_detection_2.py
 顔検出時の顔検出部分をjpgで保存する
+
+# モジュールの吐き出し
+pip freeze > requirements.tx

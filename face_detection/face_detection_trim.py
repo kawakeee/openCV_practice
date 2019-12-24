@@ -12,7 +12,7 @@ if __name__ == '__main__':
     DEVICE_ID = 0
 
     # 分類器の指定
-    cascade_file = "haarcascade_frontalface_alt2.xml"
+    cascade_file = "../xml/haarcascade_frontalface_alt2.xml"
     cascade = cv2.CascadeClassifier(cascade_file)
 
     # カメラ映像取得
@@ -25,6 +25,9 @@ if __name__ == '__main__':
     # ウィンドウの準備
     cv2.namedWindow(ORG_WINDOW_NAME)
     cv2.namedWindow(GAUSSIAN_WINDOW_NAME)
+
+    # 連番の生成
+    n = 0
 
     # 変換処理ループ
     while end_flag == True:
@@ -39,11 +42,19 @@ if __name__ == '__main__':
             color = (0, 0, 225)
             pen_w = 3
             cv2.rectangle(img_gray, (x, y), (x+w, y+h), color, thickness = pen_w)
+            # face_image:顔検出した部分だけにトリミングする
+            face_image = img_gray[y:y+h, x:x+w]
 
         # フレーム表示
         cv2.imshow(ORG_WINDOW_NAME, c_frame)
         cv2.imshow(GAUSSIAN_WINDOW_NAME, img_gray)
 
+        # 顔が検出されたらjpgファイルを生成する
+        if type(face_list) is not tuple :
+            # face_imageを画像ファイルとして生成する
+            cv2.imwrite('{}_{}.{}'.format('../images/trim/face', n, 'jpg'), face_image)
+            n += 1
+        
         # Escキーで終了
         key = cv2.waitKey(INTERVAL)
         if key == ESC_KEY:

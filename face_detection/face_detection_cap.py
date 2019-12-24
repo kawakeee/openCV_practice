@@ -1,5 +1,4 @@
 import cv2
-import time
 
 if __name__ == '__main__':
     # 定数定義
@@ -13,7 +12,7 @@ if __name__ == '__main__':
     DEVICE_ID = 0
 
     # 分類器の指定
-    cascade_file = "haarcascade_frontalface_alt2.xml"
+    cascade_file = "../xml/haarcascade_frontalface_alt2.xml"
     cascade = cv2.CascadeClassifier(cascade_file)
 
     # カメラ映像取得
@@ -27,6 +26,9 @@ if __name__ == '__main__':
     cv2.namedWindow(ORG_WINDOW_NAME)
     cv2.namedWindow(GAUSSIAN_WINDOW_NAME)
 
+    # 連番の生成
+    n = 0
+    
     # 変換処理ループ
     while end_flag == True:
 
@@ -47,7 +49,8 @@ if __name__ == '__main__':
 
         # 顔が検出されたらjpgファイルを生成する
         if type(face_list) is not tuple :
-            cv2.imwrite('{}_{}.{}'.format('picture/face', time.time(), 'jpg'), c_frame)
+            cv2.imwrite('{}_{}.{}'.format('../images/capture/face', n, 'jpg'), c_frame)
+            n += 1
         
         # Escキーで終了
         key = cv2.waitKey(INTERVAL)
